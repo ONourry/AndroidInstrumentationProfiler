@@ -6,14 +6,11 @@ AIP is a tool used to profile mobile applications using existing instrumentation
 - The following folders containing Android tools required to build the app and trace the execution must be accessible directly through the PATH
   - build-tools folder (from android sdk folder)
   - platform-tools (from android sdk folder
+- Make sure the correct package name for the analyzed app is shown at the top of the custom runner file and that both androidx and android JUnitRunner imports are commented out before running AIP (MyRunner.java)
 - The JAVA_HOME must point to a valid JDK of version 11 or above (otherwise the AST tool jar file may not run)
   - The bin directory of the JAVA_HOME must also be reachable through path (to call java)
 - The ANDROID_HOME/ANDROID_SDK_ROOT must point to a valid android sdk
 - The repository must be manually cloned by the user. Make sure the project can be built and that the tests are working.
-
-# How to run
-- Connect the device to your computer/server and make sure adb detects the device
-- Make sure the correct package name for the analyzed app is shown at the top of the custom runner file (MyRunner.java)
 - Setup the correct path to your sdk in the local.properties file
 - Setup the correct paths in the config.properties file
   - buildApplication: tells AIP to build the app or not
@@ -21,6 +18,10 @@ AIP is a tool used to profile mobile applications using existing instrumentation
   - gradleJDK: optional property that can be filled if a different jdk is required to build gradle without having to change the $JAVA_HOME variable
 
 *If you intend to run the tool again on the same revision set the updateGradleBuildFile properties to False in config.properties. Otherwise, AIP will parse the already modified gradle build file and try to generate apks from it. The builds might fail and the apks will not be usable to run the instrumentation. You can also leave updateGradleBuildFile=True if you reset the build.gradle file to its default state*
+
+# How to run
+- Connect the device to your computer/server and make sure adb detects the device
+
 
 
 **execute launcher.py** 
