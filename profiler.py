@@ -113,7 +113,7 @@ def launchProcessWithMonitor(app_process, runner, systracefile, device_output_fi
 	profiling_process = multiprocessing.Process(target=startMonitorProfiling,
 	                                            args=(app_process,app_repo,device_output_file))
 	profiling_process.start()
-	stop_monitor_process = multiprocessing.Process(target=stopMonitorProfiling, args=(app_process, app_repo, False))
+	stop_monitor_process = multiprocessing.Process(target=stopMonitorProfiling, args=(app_process,))
 	stop_monitor_process.start()
 	systrace_process = startSystrace(android_home, systracefile) #systrace started
 	time.sleep(3)
@@ -166,6 +166,7 @@ def profile(appRepo, outputDirectory, testSignature):
 	gradleParser = GradleParser(appRepo)
 
 	appProcess = gradleParser.get_app_process()
+
 	testApplicationId = gradleParser.get_test_application_id()
 	runner = gradleParser.get_runner()
 

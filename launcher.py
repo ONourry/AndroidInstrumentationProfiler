@@ -43,17 +43,13 @@ def main():
     customTestRunner = configIni["CONFIG"]["testRunner"]
     profilerOutputDirectory = configIni["CONFIG"]["profilerOutputDirectory"]
     astOutputDir = configIni["CONFIG"]["astOutputDir"]
-    gradleJDK = configIni["CONFIG"]["gradleJDK"] #jar file needs jdk 13+ to run but some projects need older ver to build
+    gradleJDK = configIni["CONFIG"]["gradleJDK"] #jar file needs jdk 11+ to run but some projects need older ver to build
 
-    if gradleJDK:
-        print("gradlejdk")
-    else:
-        print("nogradleJDK")
     getTestSignatures(jarExecutable, appRepo, astOutputDir)
     testSignatureFile = os.path.join(astOutputDir, 'test_cases.txt')
 
     print("start setup")
-    setup(appRepo=appRepo, propertyFile=propertyFile, build=build, updateGradleBuildFile=updateGradle, myRunnerFile=customTestRunner, gradleJDK=gradleJDK)
+    setupOut = setup(appRepo=appRepo, propertyFile=propertyFile, build=build, updateGradleBuildFile=updateGradle, myRunnerFile=customTestRunner, gradleJDK=gradleJDK)
 
     testSignatures = None
     with open(testSignatureFile,"r") as f:

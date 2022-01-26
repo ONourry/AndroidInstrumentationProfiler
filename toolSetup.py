@@ -52,6 +52,7 @@ def findPackageName(app_repo):
     topFile = target_files[list_index]
     topFilePath = "/".join(topFile.split("/")[:-1])
 
+
     packageName = topFile.replace(androidTestFolderForJava, "")
     packageName = ".".join(packageName.split("/")[:-1])  # Remove file name, replace / by .
 
@@ -97,11 +98,13 @@ def installApks(app_repo):
                 if not os.path.isfile(debugApk):
                     debugApk = None
         elif 'build/outputs/apk' in dirPath:
-            if (debugApk is None) and (testApk is None):
-                test_apk_files = [os.path.join(dirPath, f) for f in files if f.endswith('androidTest.apk')]
-                debug_apk_files = [os.path.join(dirPath, f) for f in files if f.endswith('debug.apk')]
-                assert len(test_apk_files) < 2
-                assert len(debug_apk_files) < 2
+            if (debugApk is None) or (testApk is None):
+                if testApk is None:
+                    test_apk_files = [os.path.join(dirPath, f) for f in files if f.endswith('androidTest.apk')]
+                if debugApk is None:
+                    debug_apk_files = [os.path.join(dirPath, f) for f in files if f.endswith('debug.apk')]
+                #assert len(test_apk_files) < 2
+                #assert len(debug_apk_files) < 2
                 if len(debug_apk_files):
                     debugApk = debug_apk_files[0]
                 if len(test_apk_files):
