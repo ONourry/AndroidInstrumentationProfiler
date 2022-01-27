@@ -17,7 +17,7 @@ AIP is a tool used to profile mobile applications using existing instrumentation
   - updateGradleBuildFile: tells AIP to update the gradle build files to customize the test runner. 
   - gradleJDK: optional property that can be filled if a different jdk is required to build gradle without having to change the $JAVA_HOME variable
 
-*If you intend to run the tool again on the same revision set the updateGradleBuildFile properties to False in config.properties. Otherwise, AIP will parse the already modified gradle build file and try to generate apks from it. The builds might fail and the apks will not be usable to run the instrumentation. You can also leave updateGradleBuildFile=True if you reset the build.gradle file to its default state*
+*If you intend to run the tool again on the same revision set the updateGradleBuildFile properties to False in config.properties. Otherwise, AIP will parse the already modified gradle build file and try to generate apks from it. The builds might fail and the apks will not be usable to run the instrumentation. You can also leave updateGradleBuildFile=True if you reset the build.gradle file to its default state and remove the custom runner that was copied to the androidTest directory*
 
 # How to run
 - Connect the device to your computer/server and make sure adb detects the device
