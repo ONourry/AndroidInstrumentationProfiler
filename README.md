@@ -29,6 +29,8 @@ AIP is a tool used to profile mobile applications using existing instrumentation
 # Possible issues
 - Each project and revision use their own gradle version. Some older or newer revisions might use different gradle versions which cause the build to pass/fail
 - Older and newer revisions of an app may not be compatible with the same jdks (for gradle builds, a different jdk can be specified in the config.properties file via the gradleJDK property)
+  - The tests or the gradle build may fail if the jdk version specified in the JAVA_HOME environment variable is not compatible with the current revision
+- If using pycharm, the IDE must be fully closed and restarted for env variable changes to be reflected in the IDE
 - If gradle stalls, try deleting existing locks using the following command
 ```
 find ~/.gradle -type f -name "*.lock" -delete
@@ -37,5 +39,4 @@ find ~/.gradle -type f -name "*.lock" -delete
 ```
 rm -r ~/.gradle/caches/
 ```
-- The tests or the gradle build may fail if the jdk version specified in the JAVA_HOME environment variable is not compatible with the current revision
-- If using pycharm, the IDE must be fully closed and restarted for env variable changes to be reflected in the IDE
+- For large experiments, if an error message appears saying adb cannot install the apks due to memory issues, restarting the phone can solve this problem
