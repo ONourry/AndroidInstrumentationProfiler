@@ -1,6 +1,12 @@
 # Android Instrumentation Profiler
 AIP is a tool used to profile mobile applications using existing instrumentation tests
 
+# Tool Showcase Link
+
+[![IMAGE ALT TEXT](https://i3.ytimg.com/vi/XMV-nxWjOQA/maxresdefault.jpg)]((https://www.youtube.com/watch?v=XMV-nxWjOQA) "Android Instrumentation Profiler")
+
+
+
 # Requirements / Initial Setup
 - AIP only runs on android devices (Make sure usb debugging is enabled and that adb detects your device)
 - Make sure the that both androidx and android JUnitRunner imports are commented out in the initial MyRunner.java file before running AIP
