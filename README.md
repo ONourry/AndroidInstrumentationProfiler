@@ -10,6 +10,7 @@ A setup and usage video is available at the following link below
 
 # Requirements / Initial Setup
 - AIP only runs on android devices (Make sure usb debugging is enabled and that adb detects your device)
+- **AIP does not currently support emulators**
 - Make sure the that both androidx and android JUnitRunner imports are commented out in the initial MyRunner.java file before running AIP
 - The repository must be manually cloned by the user. Make sure the project can be built and that the tests are working.
 
