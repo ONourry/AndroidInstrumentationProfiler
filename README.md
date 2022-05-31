@@ -2,7 +2,9 @@
 AIP is a tool used to profile mobile applications using existing instrumentation tests
 
 # Tool Showcase Link
-A setup and usage video is available at the following link below
+A setup and usage video is available at the following link below or by clicking on the image.
+
+https://www.youtube.com/watch?v=XMV-nxWjOQA
 
 [![IMAGE ALT TEXT](https://i3.ytimg.com/vi/XMV-nxWjOQA/maxresdefault.jpg)](https://www.youtube.com/watch?v=XMV-nxWjOQA "Android Instrumentation Profiler")
 
